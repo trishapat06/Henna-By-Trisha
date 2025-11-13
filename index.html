@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henna by Trisha</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fffaf7;
+      color: #2e2b28;
+      font-family: 'Lora', serif;
+      scroll-behavior: smooth;
+    }
+
+    /* ====== NAVBAR ====== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #3b7a57;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      color: #fff;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-family: 'Lora', serif;
+    }
+
+    nav a:hover {
+      color: #f7e7ce;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    /* ====== HERO HEADER ====== */
+    header#home {
+      height: 40vh;
+      background: url('henna-header.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+    }
+
+    header#home::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 34, 18, 0.877);
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.6em;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .hero-text p {
+      font-family: 'Lora', serif;
+      font-size: 1.2em;
+      background: #ffe5ec;
+      color: #2e2b28;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      padding: 45px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+      color: #405c4c;
+      font-family: 'Playfair Display', serif;
+    }
+
+    #about p {
+      text-align: center;
+      font-family: 'Lora', serif;
+    }
+
+    /* ====== GALLERY ====== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* ====== CONTACT ====== */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: #3b7a57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: #d4a373;
+    }
+
+    /* ====== BOOK FORM ====== */
+    #book {
+      background-color: #ffe5ec;
+      color: #2e2b28;
+      padding: 60px 20px;
+      border-radius: 8px;
+    }
+
+    #book h2 {
+      color: #405c4c;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 25px auto;
+      background-color: #2f5b41;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 2px solid #ffe5ec;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #2e2b28;
+      font-family: 'Lora', serif;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-family: 'Lora', serif;
+      color: #6b6b6b;
+      font-style: italic;
+    }
+
+    input[type="date"] {
+      font-family: 'Lora', serif;
+      color: #2e2b28;
+      font-size: 1em;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #3b7a57;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-family: 'Lora', serif;
+    }
+
+    button:hover {
+      background-color: #0d3815;
+      color: #3b7a57;
+    }
+
+    /* ====== POPUP STYLES ====== */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fffaf7;
+      border: 2px solid #3b7a57;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      padding: 30px 40px;
+      z-index: 200;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .popup h3, .popup p {
+      font-family: 'Playfair Display', serif; /* ✅ fixed font for both lines */
+      color: #2e2b28;
+      margin-bottom: 15px;
+    }
+
+    .popup button {
+      background-color: #3b7a57;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Lora', serif;
+      transition: background 0.3s;
+    }
+
+    .popup button:hover {
+      background-color: #2f5b41;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #3b7a57;
+      color: #fff;
+      margin-top: 40px;
+      font-size: 0.9em;
+      border-top: 3px solid #fff;
+    }
+
+    /* ====== MOBILE STYLES ====== */
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3b7a57;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 15px 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2em;
+      }
+
+      .hero-text p {
+        font-size: 1em;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav>
+    <div class="logo">Henna by Trisha</div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#book">Book An Appointment</a></li>
+    </ul>
+  </nav>
+
+  <!-- ====== HERO HEADER ====== -->
+  <header id="home">
+    <div class="hero-text">
+      <h1>Beautiful Henna for Every Occasion</h1>
+      <p>Delicate Designs, Made with Love</p>
+    </div>
+  </header>
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I’m Trisha, a self-taught henna artist who fell in love with henna while exploring my cultural roots. My style blends traditional and modern patterns together, and I love creating designs my clients adore. Each design tells a story and celebrates individuality.
+    </p>
+  </section>
+
+  <!-- ====== GALLERY ====== -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="IMG_8973.jpg" alt="Henna Design 1" />
+      <img src="IMG_8750.jpg" alt="Henna Design 2" />
+      <img src="IMG_8434.jpg" alt="Henna Design 3" />
+      <img src="IMG_0735.jpg" alt="Henna Design 4" />
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-info">
+      Email: <a href="mailto:trisha.pat06@gmail.com">trisha.pat06@gmail.com</a><br />
+      Instagram: <a href="https://www.instagram.com/henna.by.trisha_/" target="_blank">@henna.by.trisha_</a>
+    </p>
+  </section>
+
+  <!-- ====== BOOK FORM ====== -->
+  <section id="book">
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="date">Preferred Date:</label>
+      <input type="date" id="date" required />
+
+      <label for="message">Design/Details:</label>
+      <textarea id="message" rows="4" placeholder="Tell me about your design or event" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- ====== POPUP ====== -->
+  <div class="popup" id="thankYouPopup">
+    <h3>Thank you for your submission!</h3>
+    <p>I will be in contact with you shortly to confirm a date and discuss your design request!</p>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <p>© Henna By Trisha | Delicate Designs, Made with Love</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const popup = document.getElementById('thankYouPopup');
+    const closePopup = document.getElementById('closePopup');
+
+    menuToggle.addEventListener('click', () => { menu.classList.toggle('active'); });
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => { menu.classList.remove('active'); });
+    });
+
+    document.getElementById('bookingForm').addEventListener('submit', function(event){
+      event.preventDefault();
+      popup.style.display = 'block';
+      this.reset();
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
