@@ -10,7 +10,11 @@
 
   <style>
     /* ====== GLOBAL STYLES ====== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       background-color: #fffaf7;
@@ -43,7 +47,9 @@
       display: flex;
     }
 
-    nav ul li { margin-left: 20px; }
+    nav ul li {
+      margin-left: 20px;
+    }
 
     nav a {
       color: #fff;
@@ -53,7 +59,9 @@
       font-family: 'Lora', serif;
     }
 
-    nav a:hover { color: #f7e7ce; }
+    nav a:hover {
+      color: #f7e7ce;
+    }
 
     .menu-toggle {
       display: none;
@@ -92,7 +100,10 @@
       z-index: 0;
     }
 
-    .hero-text { position: relative; z-index: 1; }
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
 
     .hero-text h1 {
       font-family: 'Great Vibes', cursive;
@@ -126,7 +137,10 @@
       font-family: 'Playfair Display', serif;
     }
 
-    #about p { text-align: center; font-family: 'Lora', serif; }
+    #about p {
+      text-align: center;
+      font-family: 'Lora', serif;
+    }
 
     /* ====== GALLERY ====== */
     .gallery {
@@ -148,7 +162,9 @@
     }
 
     /* ====== CONTACT ====== */
-    #contact { text-align: center; }
+    #contact {
+      text-align: center;
+    }
 
     .contact-info a {
       color: #3b7a57;
@@ -156,7 +172,9 @@
       font-weight: 500;
     }
 
-    .contact-info a:hover { color: #d4a373; }
+    .contact-info a:hover {
+      color: #d4a373;
+    }
 
     /* ====== BOOK FORM ====== */
     #book {
@@ -166,7 +184,9 @@
       border-radius: 8px;
     }
 
-    #book h2 { color: #405c4c; }
+    #book h2 {
+      color: #405c4c;
+    }
 
     form {
       max-width: 500px;
@@ -196,7 +216,8 @@
       font-family: 'Lora', serif;
     }
 
-    input::placeholder, textarea::placeholder {
+    input::placeholder,
+    textarea::placeholder {
       font-family: 'Lora', serif;
       color: #6b6b6b;
       font-style: italic;
@@ -228,7 +249,7 @@
       color: #3b7a57;
     }
 
-    /* ====== POPUP ====== */
+    /* ====== POPUP STYLES ====== */
     .popup {
       display: none;
       position: fixed;
@@ -263,7 +284,9 @@
       transition: background 0.3s;
     }
 
-    .popup button:hover { background-color: #2f5b41; }
+    .popup button:hover {
+      background-color: #2f5b41;
+    }
 
     /* ====== FOOTER ====== */
     footer {
@@ -276,7 +299,7 @@
       border-top: 3px solid #fff;
     }
 
-    /* ====== MOBILE ====== */
+    /* ====== MOBILE STYLES ====== */
     @media (max-width: 768px) {
       nav ul {
         position: absolute;
@@ -288,22 +311,42 @@
         align-items: center;
         display: none;
       }
-      nav ul.active { display: flex; }
-      nav ul li { margin: 15px 0; }
-      .menu-toggle { display: flex; }
-      .hero-text h1 { font-size: 2.2em; }
-      .hero-text p { font-size: 1em; }
-      section { padding: 40px 15px; }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 15px 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2em;
+      }
+
+      .hero-text p {
+        font-size: 1em;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ====== NAVBAR ====== -->
   <nav>
     <div class="logo">Henna by Trisha</div>
     <div class="menu-toggle" id="menu-toggle">
-      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
     <ul id="menu">
       <li><a href="#home">Home</a></li>
@@ -314,7 +357,7 @@
     </ul>
   </nav>
 
-  <!-- HERO HEADER -->
+  <!-- ====== HERO HEADER ====== -->
   <header id="home">
     <div class="hero-text">
       <h1>Beautiful Henna for Every Occasion</h1>
@@ -322,7 +365,7 @@
     </div>
   </header>
 
-  <!-- ABOUT -->
+  <!-- ====== ABOUT ====== -->
   <section id="about">
     <h2>About Me</h2>
     <p>
@@ -330,7 +373,7 @@
     </p>
   </section>
 
-  <!-- GALLERY -->
+  <!-- ====== GALLERY ====== -->
   <section id="gallery">
     <h2>Gallery</h2>
     <div class="gallery">
@@ -341,7 +384,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ====== CONTACT ====== -->
   <section id="contact">
     <h2>Contact</h2>
     <p class="contact-info">
@@ -350,7 +393,7 @@
     </p>
   </section>
 
-  <!-- BOOK FORM -->
+  <!-- ====== BOOK FORM ====== -->
   <section id="book">
     <h2>Book an Appointment</h2>
     <form id="bookingForm">
@@ -370,14 +413,14 @@
     </form>
   </section>
 
-  <!-- POPUP -->
+  <!-- ====== POPUP ====== -->
   <div class="popup" id="thankYouPopup">
     <h3>Thank you for your submission!</h3>
     <p>I will be in contact with you shortly to confirm a date and discuss your design request!</p>
     <button id="closePopup">Close</button>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ====== FOOTER ====== -->
   <footer>
     <p>© Henna By Trisha | Delicate Designs, Made with Love</p>
   </footer>
@@ -387,14 +430,16 @@
     const menu = document.getElementById('menu');
     const popup = document.getElementById('thankYouPopup');
     const closePopup = document.getElementById('closePopup');
-    const form = document.getElementById('bookingForm');
 
     menuToggle.addEventListener('click', () => { menu.classList.toggle('active'); });
-    document.querySelectorAll('#menu a').forEach(link => { link.addEventListener('click', () => { menu.classList.remove('active'); }); });
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => { menu.classList.remove('active'); });
+    });
 
-    // Formspree submission
-    form.addEventListener('submit', async function(event){
+    // ====== Formspree submission ======
+    document.getElementById('bookingForm').addEventListener('submit', async function(event){
       event.preventDefault();
+
       const formData = {
         name: this.name.value,
         email: this.email.value,
@@ -403,24 +448,26 @@
       };
 
       try {
-        const response = await fetch("https://formspree.io/f/movyvekq", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        const response = await fetch('https://formspree.io/f/movyvekq', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
-        if(response.ok){
+
+        if(response.ok) {
           popup.style.display = 'block';
-          form.reset();
+          this.reset();
         } else {
-          alert("Oops! Something went wrong. Please try again.");
+          alert('Oops! Something went wrong. Please try again.');
         }
-      } catch(err){
-        alert("Oops! Something went wrong. Please try again.");
-        console.error(err);
+      } catch (error) {
+        alert('Oops! Something went wrong. Please try again.');
       }
     });
 
-    closePopup.addEventListener('click', () => { popup.style.display = 'none'; });
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
   </script>
 
 </body>
