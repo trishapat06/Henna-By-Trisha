@@ -438,10 +438,11 @@
     });
 
     document.getElementById('bookingForm').addEventListener('submit', function(event){
-      event.preventDefault();
-      popup.style.display = 'block';
-      this.reset();
+  event.preventDefault();  // stop page reload
+  popup.style.display = 'block';  // show popup
+  this.reset();  // clear form fields
     });
+    ;
 
     closePopup.addEventListener('click', () => {
       popup.style.display = 'none';
@@ -450,3 +451,4 @@
 
 </body>
 </html>
+
