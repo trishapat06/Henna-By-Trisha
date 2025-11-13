@@ -268,7 +268,7 @@
     }
 
     .popup h3, .popup p {
-      font-family: 'Playfair Display', serif; /* ✅ fixed font for both lines */
+      font-family: 'Playfair Display', serif;
       color: #2e2b28;
       margin-bottom: 15px;
     }
@@ -396,19 +396,18 @@
   <!-- ====== BOOK FORM ====== -->
   <section id="book">
     <h2>Book an Appointment</h2>
-    <form id="<form id="bookingForm" action="https://formspree.io/f/movyvekq" method="POST">
-">
+    <form id="bookingForm">
       <label for="name">Full Name:</label>
-      <input type="text" id="name" required />
+      <input type="text" id="name" name="name" required />
 
       <label for="email">Email:</label>
-      <input type="email" id="email" required />
+      <input type="email" id="email" name="email" required />
 
       <label for="date">Preferred Date:</label>
-      <input type="date" id="date" required />
+      <input type="date" id="date" name="date" required />
 
       <label for="message">Design/Details:</label>
-      <textarea id="message" rows="4" placeholder="Tell me about your design or event" required></textarea>
+      <textarea id="message" name="message" rows="4" placeholder="Tell me about your design or event" required></textarea>
 
       <button type="submit">Submit</button>
     </form>
@@ -437,12 +436,33 @@
       link.addEventListener('click', () => { menu.classList.remove('active'); });
     });
 
-    document.getElementById('bookingForm').addEventListener('submit', function(event){
-  event.preventDefault();  // stop page reload
-  popup.style.display = 'block';  // show popup
-  this.reset();  // clear form fields
+    document.getElementById('bookingForm').addEventListener('submit', async function(event){
+      event.preventDefault();
+
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        date: this.date.value,
+        message: this.message.value
+      };
+
+      try {
+        const response = await fetch('https://formspree.io/f/mnqwrbla', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if(response.ok) {
+          popup.style.display = 'block';
+          this.reset();
+        } else {
+          alert('Oops! Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        alert('Oops! Something went wrong. Please try again.');
+      }
     });
-    ;
 
     closePopup.addEventListener('click', () => {
       popup.style.display = 'none';
@@ -451,4 +471,3 @@
 
 </body>
 </html>
-
